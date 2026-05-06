@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, ElementRef, inject, QueryList, ViewChildren } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { StoreService } from '../store.service';
 
@@ -11,4 +11,23 @@ import { StoreService } from '../store.service';
 export class HomeComponent {
   service = inject(StoreService);
 
+  ngAfterViewInit() {
+
+    const videos = document.querySelectorAll('video');
+
+    videos.forEach((video: HTMLVideoElement) => {
+      video.muted = true;
+      video.loop = true;
+      video.playsInline = true;
+
+      const playPromise = video.play();
+
+      if (playPromise !== undefined) {
+        playPromise.catch(err => {
+          console.log('Autoplay blocked:', err);
+        });
+      }
+    });
+
+  }
 }
