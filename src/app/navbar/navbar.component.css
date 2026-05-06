@@ -1,28 +1,73 @@
 nav {
+  position: fixed;
+  top: 15px; /* 👈 creates floating effect */
+  left: 50%;
+  transform: translateX(-50%);
+  
+  width: 90%;
+  max-width: 1200px;
+
+  padding: 15px 30px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px;
-  background: rgba(0,0,0,0.8);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+
+  background: rgba(255, 255, 255, 0.04); /* much lighter */
+  backdrop-filter: blur(6px); /* less blur = clearer */
+
+  border-radius: 50px;
+
+  box-shadow: 
+    0 6px 20px rgba(0,0,0,0.2); /* softer shadow */
+
+  z-index: 1000;
+
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-nav h2 {
-  font-size: 22px;
-  background: linear-gradient(90deg, #00f0ff, #8a2be2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* HIDE ON SCROLL DOWN */
+nav.hide {
+  transform: translate(-50%, -120%);
+  opacity: 0;
 }
 
-nav a {
-  margin: 0 10px;
+/* LOGO */
+.logo {
+  font-family: 'Allura', cursive;
+  font-size: 26px;
+}
+
+/* LINKS */
+.links {
+  display: flex;
+  gap: 20px;
+  list-style: none;     /* remove bullets */
+  margin: 0;            /* remove default spacing */
+  padding: 0;
+}
+
+.links a {
+  font-weight: 700;
   text-decoration: none;
-  color: #aaa;
-  transition: 0.3s;
+  color: white;
+  font-size: 14px;
+  opacity: 0.8;
+  transition: 0.2s;
 }
 
-nav a:hover {
-  color: #00f0ff;
-  text-shadow: 0 0 10px #00f0ff;
+.links a:hover {
+  opacity: 1;
+}
+
+.links a.active {
+  opacity: 1;
+  color: #ff6b35;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .links {
+    font-size: 12px;
+  }
 }

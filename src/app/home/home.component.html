@@ -1,10 +1,21 @@
 <!-- HERO SECTION -->
 <section class="hero">
+
+  <!-- BACKGROUND VIDEO -->
+  <video class="hero-video" autoplay muted loop playsinline preload="auto">
+    <source src="assets/videos/hero.mp4" type="video/mp4">
+  </video>
+
+  <!-- DARK OVERLAY (for readability) -->
+  <div class="hero-overlay"></div>
+
+  <!-- CONTENT -->
   <div class="hero-content">
-    <h1>WELCOME TO IT STORE 👩🏽‍💻</h1>
-    <p>Your one-stop shop for Tech, PC Parts & Arduino</p>
+    <h1>WELCOME TO TECH STORE 👩🏽‍💻</h1>
+    <p>Ang pambansang one-stop shop for Developers and Gamers</p>
     <button routerLink="/monitors">SHOP NOW</button>
   </div>
+
 </section>
 
 <!-- CATEGORY SECTION -->
@@ -14,19 +25,35 @@
   <div class="category-grid">
 
     <div class="category-card" routerLink="/monitors">
-      <h3>🖥️ MONITORS</h3>
+      <h3>MONITORS</h3>
+
+      <video class="hero-video" autoplay muted loop playsinline preload="auto">
+        <source src="assets/videos/monitor.mp4" type="video/mp4">
+      </video>
     </div>
 
     <div class="category-card" routerLink="/keyboards">
-      <h3>⌨️ KEYBOARDS</h3>
+      <h3>KEYBOARDS</h3>
+
+      <video class="hero-video" autoplay muted loop playsinline preload="auto">
+        <source src="assets/videos/keyboard.mp4" type="video/mp4">
+      </video>
     </div>
 
     <div class="category-card" routerLink="/pc">
-      <h3>🖥 PC PARTS</h3>
+      <h3>PC PARTS</h3>
+
+      <video class="hero-video" autoplay muted loop playsinline preload="auto">
+        <source src="assets/videos/pc.mp4" type="video/mp4">
+      </video>
     </div>
 
     <div class="category-card" routerLink="/arduino">
-      <h3>🤖 ARDUINO</h3>
+      <h3>ARDUINO</h3>
+
+      <video class="hero-video" autoplay muted loop playsinline preload="auto">
+        <source src="assets/videos/arduino.mp4" type="video/mp4">
+      </video>
     </div>
 
   </div>
@@ -38,6 +65,46 @@
 
   <div class="product-grid">
 
+    <!-- MONITOR -->
+    @for (item of service.monitors().slice(-1); track item) {
+      <div class="product-card">
+        <img [src]="item.image">
+        <p>{{item.name}}</p>
+        <span>₱{{item.price}}</span>
+        <small>MONITOR</small>
+      </div>
+    }
+
+    <!-- KEYBOARD -->
+    @for (item of service.keyboards().slice(-1); track item) {
+      <div class="product-card">
+        <img [src]="item.image">
+        <p>{{item.name}}</p>
+        <span>₱{{item.price}}</span>
+        <small>KEYBOARD</small>
+      </div>
+    }
+
+    <!-- PC -->
+    @for (item of service.pc().slice(-1); track item) {
+      <div class="product-card">
+        <img [src]="item.image">
+        <p>{{item.name}}</p>
+        <span>₱{{item.price}}</span>
+        <small>PC PART</small>
+      </div>
+    }
+
+    <!-- ARDUINO -->
+    @for (item of service.arduino().slice(-1); track item) {
+      <div class="product-card">
+        <img [src]="item.image">
+        <p>{{item.name}}</p>
+        <span>₱{{item.price}}</span>
+        <small>ARDUINO</small>
+      </div>
+    }
+    
     <!-- MONITOR -->
     @for (item of service.monitors().slice(0,1); track item) {
       <div class="product-card">

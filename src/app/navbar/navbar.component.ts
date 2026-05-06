@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
@@ -9,4 +9,21 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class NavbarComponent {
 
+  lastScroll = 0;
+
+  @HostListener('window:scroll', [])
+  onScroll() {
+    const current = window.pageYOffset;
+    const nav = document.getElementById('navbar');
+
+    if (!nav) return;
+
+    if (current > this.lastScroll) {
+      nav.classList.add('hide'); // scroll down
+    } else {
+      nav.classList.remove('hide'); // scroll up
+    }
+
+    this.lastScroll = current;
+  }
 }

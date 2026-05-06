@@ -1,7 +1,20 @@
-/* background + font only */
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
 body {
-  background: radial-gradient(circle at top, #0b0b0b, #000);
-  color: white;
   font-family: 'Rokkitt', serif;
-  font-weight: 600;
+  font-weight: 400;
+  background: linear-gradient(135deg, #454545, #16213e, #454545,#16213e, #454545);
+  color: #ffffff;
+}
+
+/* Push ALL routed pages below navbar */
+router-outlet + * {
+  display: block;
+  margin-top: 85px; /* adjust depending on navbar height */
 }

@@ -6,8 +6,8 @@
   <div class="cart-item">
     <img class="order-img" [src]="item.image">
 
-    <p>{{item.name}} | Qty: {{item.qty}}</p>
-    <p>₱{{item.price}} x{{item.qty}}</p>
+    <p>{{item.name}} | ₱{{item.price}}</p>
+    <p>x {{item.qty}}</p>
     <p>₱{{item.price * item.qty}}</p>
 
     <input 
@@ -16,8 +16,8 @@
       min="1"
       (ngModelChange)="updateQty(item)">
 
-    <button (click)="buy(item)">✅ BUY</button>
-    <button (click)="remove(item)">❌ Remove</button>
+    <button class="btn-buy" (click)="buy(item)">BUY</button>
+    <button class="btn-remove" (click)="remove(item)">REMOVE</button>
   </div>
 
   }
@@ -39,11 +39,11 @@
       <img class="order-img" [src]="order.image">
 
       <p>{{order.category}} | {{order.name}}</p>
-      <p>{{order.price}} x{{order.quantity}}</p>
+      <p>{{order.price}} x {{order.quantity}}</p>
       <p>Total: ₱{{order.price * order.quantity}}</p>
 
-      <button (click)="startEdit(order)">✏️ EDIT</button>
-      <button (click)="cancelOrder(order._id)">❌ CANCEL ORDER</button>
+      <button class="btn-buy" (click)="startEdit(order)">EDIT</button>
+      <button class="btn-remove" (click)="cancelOrder(order._id)">CANCEL ORDER</button>
 
     }
 
@@ -51,8 +51,8 @@
 
       <input [(ngModel)]="editData.quantity" type="number" min="1">
 
-      <button (click)="saveEdit()">💾 Save</button>
-      <button (click)="cancelEdit()">Cancel</button>
+      <button class="btn-buy" (click)="saveEdit()">Save</button>
+      <button class="btn-remove" (click)="cancelEdit()">Cancel</button>
 
     }
 
