@@ -4,14 +4,12 @@
 
 @if (items.category === 'KEYBOARD') {
 
-<div class="item-card">
-  <h3>{{items.name}}</h3>
-  <p>₱{{items.price}}</p>
-  <img class="item-img" [src]="items.image">
-  <button (click)="add(items)">Add to Cart</button>
-</div>
-
-}
-
+  <div class="item-card">
+    <h3>{{items.name}}</h3>
+    <p>₱{{items.price}}</p>
+    <img class="item-img" [src]="items.image">
+    <button (click)="add(items)">Add to Cart</button>
+  </div>
+  }
 }
 </div>

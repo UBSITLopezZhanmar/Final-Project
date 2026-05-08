@@ -1,15 +1,11 @@
-<!-- HERO SECTION -->
 <section class="hero">
 
-  <!-- BACKGROUND VIDEO -->
   <video #bgVideo class="hero-video" muted loop playsinline>
     <source src="assets/videos/hero.mp4" type="video/mp4">
   </video>
 
-  <!-- DARK OVERLAY (for readability) -->
   <div class="hero-overlay"></div>
 
-  <!-- CONTENT -->
   <div class="hero-content">
     <h1>WELCOME TO TECH STORE 👩🏽‍💻</h1>
     <p>Ang pambansang one-stop shop for Developers and Gamers</p>
@@ -18,7 +14,6 @@
 
 </section>
 
-<!-- CATEGORY SECTION -->
 <section class="categories">
   <h2>SHOP BY CATEGORY</h2>
 
@@ -59,91 +54,24 @@
   </div>
 </section>
 
-<!-- FEATURED PRODUCTS -->
 <section class="featured">
   <h2>FEATURED PRODUCTS</h2>
 
   <div class="product-grid">
 
-    <!-- MONITOR -->
-    @for (item of service.monitors().slice(-1); track item) {
-      <div class="product-card">
-        <img [src]="item.image">
-        <p>{{item.name}}</p>
-        <span>₱{{item.price}}</span>
-        <small>MONITOR</small>
-      </div>
-    }
+  @for (item of featuredProducts; track item.name) {
 
-    <!-- KEYBOARD -->
-    @for (item of service.keyboards().slice(-1); track item) {
-      <div class="product-card">
-        <img [src]="item.image">
-        <p>{{item.name}}</p>
-        <span>₱{{item.price}}</span>
-        <small>KEYBOARD</small>
-      </div>
-    }
+    <div class="product-card">
+      <img [src]="item.image" [alt]="item.name">
 
-    <!-- PC -->
-    @for (item of service.pc().slice(-1); track item) {
-      <div class="product-card">
-        <img [src]="item.image">
-        <p>{{item.name}}</p>
-        <span>₱{{item.price}}</span>
-        <small>PC PART</small>
-      </div>
-    }
+      <p>{{ item.name }}</p>
 
-    <!-- ARDUINO -->
-    @for (item of service.arduino().slice(-1); track item) {
-      <div class="product-card">
-        <img [src]="item.image">
-        <p>{{item.name}}</p>
-        <span>₱{{item.price}}</span>
-        <small>ARDUINO</small>
-      </div>
-    }
-    
-    <!-- MONITOR -->
-    @for (item of service.monitors().slice(0,1); track item) {
-      <div class="product-card">
-        <img [src]="item.image">
-        <p>{{item.name}}</p>
-        <span>₱{{item.price}}</span>
-        <small>MONITOR</small>
-      </div>
-    }
+      <span>₱{{ item.price }}</span>
 
-    <!-- KEYBOARD -->
-    @for (item of service.keyboards().slice(0,1); track item) {
-      <div class="product-card">
-        <img [src]="item.image">
-        <p>{{item.name}}</p>
-        <span>₱{{item.price}}</span>
-        <small>KEYBOARD</small>
-      </div>
-    }
+      <small>{{ item.category }}</small>
+    </div>
 
-    <!-- PC -->
-    @for (item of service.pc().slice(0,1); track item) {
-      <div class="product-card">
-        <img [src]="item.image">
-        <p>{{item.name}}</p>
-        <span>₱{{item.price}}</span>
-        <small>PC PART</small>
-      </div>
-    }
+  }
 
-    <!-- ARDUINO -->
-    @for (item of service.arduino().slice(0,1); track item) {
-      <div class="product-card">
-        <img [src]="item.image">
-        <p>{{item.name}}</p>
-        <span>₱{{item.price}}</span>
-        <small>ARDUINO</small>
-      </div>
-    }
-
-  </div>
+</div>
 </section>

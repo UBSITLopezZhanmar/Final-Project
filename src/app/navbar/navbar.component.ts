@@ -19,9 +19,9 @@ export class NavbarComponent {
     if (!nav) return;
 
     if (current > this.lastScroll) {
-      nav.classList.add('hide'); // scroll down
+      nav.classList.add('hide');
     } else {
-      nav.classList.remove('hide'); // scroll up
+      nav.classList.remove('hide');
     }
 
     this.lastScroll = current;

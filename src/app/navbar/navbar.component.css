@@ -1,6 +1,6 @@
 nav {
   position: fixed;
-  top: 15px; /* 👈 creates floating effect */
+  top: 15px;
   left: 50%;
   transform: translateX(-50%);
   
@@ -13,37 +13,34 @@ nav {
   justify-content: space-between;
   align-items: center;
 
-  background: rgba(255, 255, 255, 0.04); /* much lighter */
-  backdrop-filter: blur(6px); /* less blur = clearer */
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(6px);
 
   border-radius: 50px;
 
   box-shadow: 
-    0 6px 20px rgba(0,0,0,0.2); /* softer shadow */
+    0 6px 20px rgba(0,0,0,0.2);
 
   z-index: 1000;
 
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* HIDE ON SCROLL DOWN */
 nav.hide {
   transform: translate(-50%, -120%);
   opacity: 0;
 }
 
-/* LOGO */
 .logo {
   font-family: 'Allura', cursive;
   font-size: 26px;
 }
 
-/* LINKS */
 .links {
   display: flex;
   gap: 20px;
-  list-style: none;     /* remove bullets */
-  margin: 0;            /* remove default spacing */
+  list-style: none;
+  margin: 0;
   padding: 0;
 }
 
@@ -65,9 +62,31 @@ nav.hide {
   color: #ff6b35;
 }
 
-/* RESPONSIVE */
 @media (max-width: 768px) {
+
+  nav {
+    width: 95%;
+    padding: 12px 20px;
+    border-radius: 25px;
+
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
   .links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+
+    font-size: 12px;
+  }
+
+  .links a {
     font-size: 12px;
   }
 }

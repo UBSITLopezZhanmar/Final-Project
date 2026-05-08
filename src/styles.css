@@ -1,11 +1,9 @@
-/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* BODY */
 body {
   font-family: 'Rokkitt', serif;
   font-weight: 400;
@@ -13,8 +11,7 @@ body {
   color: #ffffff;
 }
 
-/* Push ALL routed pages below navbar */
 router-outlet + * {
   display: block;
-  margin-top: 85px; /* adjust depending on navbar height */
+  margin-top: 85px;
 }
