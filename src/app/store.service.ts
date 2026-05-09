@@ -83,7 +83,7 @@ export class StoreService {
     sum + (item.price * (item.qty || 1)), 0)
   );
 
-  apiUrl = 'http://localhost:3000/api/orders';
+  apiUrl = 'https://final-project-vwyp.onrender.com/api/orders';
 
   saveOrder(data:any){
     return this.http.post(this.apiUrl, data);
@@ -94,10 +94,10 @@ export class StoreService {
   }
 
   deleteOrder(id: string){
-    return this.http.delete(`http://localhost:3000/api/orders/${id}`);
+    return this.http.delete(`${this.apiUrl}/${id}`);
   }
 
   updateOrder(id: string, data: any){
-    return this.http.put(`http://localhost:3000/api/orders/${id}`, data);
+    return this.http.put(`${this.apiUrl}/${id}`, data);
   }
 }
